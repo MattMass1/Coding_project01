@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Feedback Form</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="card">
+      <header class="card__header">
+        <h1>User Feedback Form</h1>
+        <p class="subtitle">We'd love to hear from you. Tell us what's on your mind.</p>
+      </header>
+
+      
+      <form id="feedback-form" novalidate>
+        
+        <div class="field">
+          <label for="name">Name</label>
+          
+          <div class="gooey-input">
+            <input
+              type="text"
+              id="name"
+              name="name"
+              data-tooltip="Enter your full name (required)."
+              maxlength="50"
+              placeholder="Jane Doe"
+              autocomplete="name"
+            />
+          </div>
+          <span class="error-msg" data-error-for="name"></span>
+        </div>
+
+        
+        <div class="field">
+          <label for="email">Email</label>
+          <div class="gooey-input">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              data-tooltip="We'll never share your email (required)."
+              maxlength="100"
+              placeholder="jane@example.com"
+              autocomplete="email"
+            />
+          </div>
+          <span class="error-msg" data-error-for="email"></span>
+        </div>
+
+
+        <div class="field">
+          <label for="comments">Comments</label>
+          <div class="gooey-input gooey-input--area">
+            <textarea
+              id="comments"
+              name="comments"
+              data-tooltip="Share your thoughts (max 300 characters)."
+              maxlength="300"
+              rows="5"
+              placeholder="Tell us what you think..."
+            ></textarea>
+          </div>
+          <div class="char-count">
+            <span id="char-count">0</span> / 300 characters
+          </div>
+          <span class="error-msg" data-error-for="comments"></span>
+        </div>
+
+        <button type="submit" id="submit-btn">Submit Feedback</button>
+      </form>
+    </section>
+
+    <section class="display-wrap">
+      <h2>Submitted Feedback</h2>
+      <div id="feedback-display">
+        <p class="empty-state">No feedback yet. Be the first to submit!</p>
+      </div>
+    </section>
+  </main>
+
+
+  <div id="tooltip" class="tooltip" role="tooltip" aria-hidden="true"></div>
+
+
+  <svg class="goo-defs" aria-hidden="true" focusable="false">
+    <defs>
+      <filter id="goo-filter">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+        <feColorMatrix
+          in="blur"
+          mode="matrix"
+          values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
+          result="goo"
+        />
+        <feBlend in="SourceGraphic" in2="goo" />
+      </filter>
+    </defs>
+  </svg>
+
+  <script src="cp_1.js"></script>
+</body>
+</html>
